@@ -1,5 +1,12 @@
-body{
+@import "./styles.variables";
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: $color--main;
+  color: $color--text;
 }

@@ -1,0 +1,51 @@
+@import "./../../../styles.variables";
+
+header {
+  background-color: #333; // provv
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  padding: 20px;
+}
+
+.header--logo {
+  display: inline-block;
+  height: 4px;
+  width: 40px;
+
+  background-color: $color--text;
+  border-radius: 2px;
+}
+
+.header--button {
+  display: flex;
+  flex-flow: column;
+
+  transition: all .5s ease;
+  span {
+    display: inline-block;
+    width: 25px;
+    margin-bottom: 8px;
+
+    border: 1px solid $color--text;
+    border-radius: 1px;
+    &:last-child {
+      width: 17px;
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.header--button__list-open {
+  span {
+    transform: rotate(-45deg);
+    &:first-child {
+      position: relative;
+      top: 9px;
+      transform: rotate(45deg);
+    }
+    &:last-child {
+      opacity: 0;
+    }
+  }
+}
