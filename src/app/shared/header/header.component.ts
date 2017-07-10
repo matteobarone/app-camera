@@ -14,4 +14,8 @@ export class HeaderComponent implements OnInit {
     this.isListOpen = false;
   }
 
+  openList() {
+    this.isListOpen = this.isListOpen ? false : true;
+  }
+
 }

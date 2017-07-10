@@ -2,7 +2,8 @@
   <div class="header--logo"></div>
   <div
     class="header--button "
-    [ngClass]="{'header--button__list-open': isListOpen}">
+    [ngClass]="{'header--button__list-open': isListOpen}"
+    (click)="openList()">
     <span></span><span></span><span></span>
   </div>
 </header>
