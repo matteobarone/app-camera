@@ -8,14 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   isListOpen: boolean;
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {
     this.isListOpen = false;
   }
 
   openList() {
-    this.isListOpen = this.isListOpen ? false : true;
+    if (!this.isListOpen) {
+      this.isListOpen = true;
+    }else{
+      this.isListOpen = false;
+    }
   }
 
 }

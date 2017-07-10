@@ -5,12 +5,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: rgba(0,0,0,.3);
 }
 
 .spinner--loader {
   position: relative;
   margin: 0 auto;
-  width: $width;
+  width: $width--spinner;
   &:before {
     content: '';
     display: block;
