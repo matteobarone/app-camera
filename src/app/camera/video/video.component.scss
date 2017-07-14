@@ -8,4 +8,27 @@
   video {
     height: 100vh;
   }
+
+  button {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 40px);
+    width: 80px;
+    height: 80px;
+
+    -webkit-appearance: none;
+    border: 5px solid white;
+    border-radius: 40px;
+    background-color: transparent;
+  }
+  button:active {
+    transform: scale(1.05);
+  }
+  button:focus {
+    outline: none;
+  }
+}
+
+canvas {
+  display:none;
 }

@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.location.path());
     this.isListOpen = this.location.path() == '' ? false : true;
   }
 

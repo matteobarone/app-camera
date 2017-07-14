@@ -1,17 +1,16 @@
 <app-spinner *ngIf="!videoLoaded"></app-spinner>
 
 <div
-  class="contentarea"
   [@fadeInAnimation]="in"
-  *ngIf="videoLoaded">
+  *ngIf="videoLoaded && !photoTaken">
   <div class="camera">
 		<video>Video stream not available.</video>
-    <!-- <button
-      (click)="onCLick()">Take photo</button> -->
+    <button (click)="takePhoto()"></button>
   </div>
-  <!-- <canvas id="canvas">
-  </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
-  </div> -->
+  <canvas></canvas>
+  <div
+    class="output"
+    *ngIf="photoTaken">
+    <img alt="The screen capture will appear in this box.">
+  </div>
 </div>
