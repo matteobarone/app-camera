@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CameraModule } from './camera/camera.module';
 import { SharedModule } from './shared/shared.module';
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     BrowserModule,
     CameraModule,
     SharedModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

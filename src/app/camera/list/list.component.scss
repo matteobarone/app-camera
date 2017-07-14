@@ -1,0 +1,11 @@
+.container--list {
+  display: flex;
+  flex-flow: row wrap;
+
+  div {
+    width: 50%;
+    height: 200px;
+    outline: 1px solid red;
+    background-color: lightblue;
+  }
+}

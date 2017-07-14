@@ -3,10 +3,10 @@
 :host {
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 header {
-  background-color: #333; // provv
   display: flex;
   justify-content: space-between;
   height: 60px;

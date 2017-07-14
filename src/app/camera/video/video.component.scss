@@ -1,0 +1,11 @@
+:host {
+  z-index: -1;
+}
+.camera {
+  width: 100vw;
+  overflow: hidden;
+
+  video {
+    height: 100vh;
+  }
+}
