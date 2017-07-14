@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, Renderer2, NgZone } from '@angular/core';
 import { fadeInAnimation } from './../../animations';
 
 @Component({
@@ -10,31 +10,36 @@ import { fadeInAnimation } from './../../animations';
 })
 export class VideoComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('video') video: any;
+  @ViewChild('video') video: ElementRef;
   navigator: Navigator;
-  private videoMarginLeft: number;
-  constructor() { }
+  public videoLoaded: boolean;
+  constructor(
+    private renderer:Renderer2,
+    private zone:NgZone
+  ) { }
 
   ngOnInit() {
-    this.videoMarginLeft = this.getVideoMarginLeft();
+    this.videoLoaded = false;
   }
 
   ngAfterViewInit() {
     navigator.getUserMedia(
       {video: true, audio: false},
-      (stream: any) => this.activeVideo(stream),
+      (stream: any) => {
+        this.zone.run(() => {
+          this.videoLoaded = true;
+          setTimeout(() => this.activeVideo(stream));
+        })
+      },
       (error: any) => console.log(error)
     );
   }
 
-  activeVideo(stream) {
-    const vendorURL = window.URL;
-    this.video.nativeElement.src = vendorURL.createObjectURL(stream);
-    this.video.nativeElement.play();
-  }
-
-  getVideoMarginLeft() {
-    return (-this.video.nativeElement.clientWidth/2) + window.innerWidth;
+  private activeVideo(stream) {
+    const video = this.renderer.selectRootElement('video');
+    video.setAttribute('style', `margin-left:${(-video.clientWidth/2) + window.innerWidth}px`);
+    video.src = window.URL.createObjectURL(stream);
+    video.play();
   }
 
 }

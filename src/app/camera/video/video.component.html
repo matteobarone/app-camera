@@ -1,10 +1,11 @@
-<div class="contentarea" [@fadeInAnimation]="in">
+<app-spinner *ngIf="!videoLoaded"></app-spinner>
+
+<div
+  class="contentarea"
+  [@fadeInAnimation]="in"
+  *ngIf="videoLoaded">
   <div class="camera">
-		<video
-      #video
-      [style.marginLeft.px]="videoMarginLeft">
-      Video stream not available.
-    </video>
+		<video>Video stream not available.</video>
     <!-- <button
       (click)="onCLick()">Take photo</button> -->
   </div>

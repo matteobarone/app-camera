@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,12 @@ export class HeaderComponent implements OnInit {
   isListOpen: boolean;
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private location: Location
   ) { }
 
   ngOnInit() {
-    this.isListOpen = false;
-    console.log(this.router);
-    console.log(this.activatedRoute);
-    this.activatedRoute.url.subscribe((response) => console.log(response) )
+    console.log(this.location.path());
+    this.isListOpen = this.location.path() == '' ? false : true;
   }
 
   openList() {
